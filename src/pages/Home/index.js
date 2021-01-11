@@ -5,6 +5,8 @@ import client from 'config/client';
 
 export default function Home() {
 
+  const dateNow = Date.now();
+
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
@@ -20,10 +22,10 @@ export default function Home() {
       <div className="col-span-3">
 
       </div>
-      <div className="col-span-9">
+      <div className="col-span-12 md:col-span-9 p-5">
         <div className="grid grid-flow-cols grid-cols-1 md:grid-cols-3 gap-20">
           {articles.map(article => (
-            <ArticleCard key={article['id']} article={article} />
+            <ArticleCard key={article['id']} dateNow={dateNow} article={article} />
           ))}
         </div>
       </div>
