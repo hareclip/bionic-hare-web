@@ -9,6 +9,7 @@ import Author from 'pages/Author';
 import Article from 'pages/Article';
 import Home from 'pages/Home';
 import Archive from 'pages/Archive';
+import Search from 'pages/Search';
 import client from 'config/client';
 
 function App() {
@@ -44,6 +45,8 @@ function App() {
             <Route path="/categories/:id" exact render={props => <Home key={props.match.params.id} />}></Route>
             <Route path="/archive/:page" exact render={props => <Archive key={props.match.params.page} />}></Route>
             <Route path="/archive" exact component={Archive}></Route>
+            <Route path="/search/:page" exact render={props => <Search key={`${props.match.params.page}/${props.location.search}`} />}></Route>
+            <Route path="/search" exact render={props => <Search key={props.location.search} />}></Route>
             <Route path="/" exact component={Home}></Route>
           </Switch>
         </Layout>

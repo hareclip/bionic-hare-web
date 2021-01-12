@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
+import SearchInput from 'components/SearchInput';
 import { useCategories } from 'context/category';
 import siteInfo from 'config/siteInfo.json';
 
@@ -40,6 +41,10 @@ export default function Navbar() {
             <li className="mr-5 text-lg font-semibold"><Link to="/archive">Archive</Link></li>
           </ul>
         </div>
+
+        <div className="hidden md:block">
+          <SearchInput />
+        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -59,6 +64,9 @@ export default function Navbar() {
                 <Link to="/archive" onClick={() => setIsOpen(false)}>Archive</Link>
               </li>
             </ul>
+            <div className="mt-3">
+              <SearchInput />
+            </div>
           </div>
         )
         : <></>}

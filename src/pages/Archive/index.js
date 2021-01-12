@@ -10,7 +10,6 @@ export default function Archive() {
   const articlesPerPage = 10;
   const pathName = 'archive';
 
-  const { search } = useLocation();
   const { page } = useParams();
 
   const currPage = parseInt(page) || 1;
@@ -53,7 +52,6 @@ export default function Archive() {
         articlesPerPage={articlesPerPage}
         articles={articles}
         pathName={pathName}
-        search={search}
         page={currPage}
         next={next}
         prev={prev}
