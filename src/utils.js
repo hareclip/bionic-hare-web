@@ -13,7 +13,7 @@ export function getReadableTimeDifference({ start, now }) {
   // TODO: use lib for dates and pluralize time
 
   if (diff < 60000) {
-    return `Updated ${Math.floor(diff)} seconds ago`;
+    return `Updated ${Math.floor(diff / 1000)} seconds ago`;
   } else if (diff < 3600000) {
     return `Updated ${Math.floor(diff / 60000)} minutes ago`;
   } else if (diff < 86400000) {
