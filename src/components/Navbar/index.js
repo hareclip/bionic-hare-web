@@ -37,6 +37,7 @@ export default function Navbar() {
             {categories.map(({ id, label }) => (
               <li key={id} className="mr-5 text-lg font-semibold"><Link to={`/categories/${id}`}>{label}</Link></li>
             ))}
+            <li className="mr-5 text-lg font-semibold"><Link to="/archive">Archive</Link></li>
           </ul>
         </div>
       </nav>
@@ -54,6 +55,9 @@ export default function Navbar() {
                   <Link to={`/categories/${id}`} onClick={() => setIsOpen(false)}>{label}</Link>
                 </li>
               ))}
+              <li className="mr-5 mt-5 text-lg font-semibold">
+                <Link to="/archive" onClick={() => setIsOpen(false)}>Archive</Link>
+              </li>
             </ul>
           </div>
         )
