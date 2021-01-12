@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { CategoryContext } from 'context/category';
 import Navbar from 'components/Navbar';
+import Footer from 'components/Footer';
 import Layout from 'components/Layout';
 import Author from 'pages/Author';
 import Article from 'pages/Article';
@@ -43,6 +44,7 @@ function App() {
             <Route path="/" exact component={Home}></Route>
           </Switch>
         </Layout>
+        <Footer />
       </Router>
     </CategoryContext.Provider>
   );

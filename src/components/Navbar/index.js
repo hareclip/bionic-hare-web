@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import { useCategories } from 'context/category';
+import siteInfo from 'config/siteInfo.json';
 
 export default function Navbar() {
 
@@ -19,10 +20,10 @@ export default function Navbar() {
   return (
     <div className="w-100 bg-red-500 text-white p-5">
 
-      <h1 className="text-5xl font-extrabold mb-5 hidden md:block">The Bionic Hare</h1>
+      <h1 className="text-5xl font-extrabold mb-5 hidden md:block">{siteInfo.name}</h1>
 
       <nav className="flex justify-between items-center">
-        <h1 className="text-5xl font-extrabold md:hidden">The Bionic Hare</h1>
+        <h1 className="text-5xl font-extrabold md:hidden">{siteInfo.name}</h1>
         <div className="md:hidden flex w-full justify-end">
           <button onClick={toggle}>
             <FontAwesomeIcon icon={faBars} size="2x" />
