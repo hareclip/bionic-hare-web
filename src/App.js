@@ -38,7 +38,7 @@ function App() {
           <Switch>
             {/* Application */}
             <Route path="/authors/:id" exact component={Author}></Route>
-            <Route path="/articles/:id" exact component={Article}></Route>
+            <Route path="/articles/:id" exact render={props => <Article key={props.match.params.id} />}></Route>
             <Route path="/categories/:id" exact render={props => <Home key={props.match.params.id} />}></Route>
             <Route path="/" exact component={Home}></Route>
           </Switch>
