@@ -6,7 +6,7 @@ import Spinner from 'components/Spinner';
 import ArticleTab from 'components/ArticleTab';
 import ArticleCard from 'components/ArticleCard';
 import client from 'config/client';
-
+import { getReadableTime } from 'utils';
 
 export default function Article() {
 
@@ -86,7 +86,7 @@ export default function Article() {
           <span>By: </span>
           <Link to={`/authors/${article['author']['id']}`}>{article['author']['first_name']} {article['author']['last_name']}</Link>
         </h1>
-        <h1 className="text-xl md:text-3xl mt-5">{new Date(article['date_created']).toUTCString()}</h1>
+        <h1 className="text-xl md:text-3xl mt-5">{getReadableTime(article['date_created'])}</h1>
         <div className="border-b-2 my-10"></div>
         <div className="prose md:prose-xl p-5">
           <ReactMarkdown>{contents}</ReactMarkdown>
