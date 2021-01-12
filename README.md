@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Bionic Hare Web
+
+Web client for bionic hare
+
+***
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
