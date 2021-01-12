@@ -64,7 +64,7 @@ export default function Article() {
           <h1 className="text-4xl md:text-6xl font-extrabold mt-5">{article['title']}</h1>
           <h1 className="text-xl md:text-3xl mt-5">
             <span>By: </span>
-            <Link to={`authors/${article['author']['id']}`}>{article['author']['first_name']} {article['author']['last_name']}</Link>
+            <Link to={`/authors/${article['author']['id']}`}>{article['author']['first_name']} {article['author']['last_name']}</Link>
           </h1>
           <h1 className="text-xl md:text-3xl mt-5">{new Date(article['date_created']).toUTCString()}</h1>
           <div className="border-b-2 my-10"></div>

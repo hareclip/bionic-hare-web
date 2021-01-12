@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Redirect, useParams } from 'react-router-dom';
 
 import Spinner from 'components/Spinner';
 import ArticleCard from 'components/ArticleCard';
@@ -10,18 +11,39 @@ export default function Home() {
 
   const dateNow = Date.now();
 
+  const { id } = useParams();
+
   const [articles, setArticles] = useState([]);
+  const [isNotFound, setIsNotFound] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchHome = async () => {
-      // TODO: differentiate latest and home articles
-      const res = await client.get('articles');
-      setArticles(res.data.results);
-      setIsLoading(false);
+      try {
+        // TODO: differentiate latest and home articles
+        const res = id === undefined
+          ? await client.get('articles')
+          : await client.get(`articles?category_id=${id}`);
+        setArticles(res.data.results);
+        setIsLoading(false);
+      } catch (err) {
+        switch (err.response.status) {
+          case 404:
+            setIsNotFound(true);
+            break;
+          default:
+            // no-op
+            break;
+        }
+      }
     }
     fetchHome();
   }, []);
+
+
+  if (isNotFound) {
+    return <Redirect to="/" />
+  }
 
   if (isLoading) {
     return (
@@ -55,7 +77,7 @@ export default function Home() {
       {/* Articles */}
       <div className="col-span-9 pt-5 border-t-2 invisible h-0 absolute md:visible md:h-full md:relative">
         <div className="grid grid-flow-cols grid-cols-3 gap-20">
-          {articles.slice(0, 7).map(article => (
+          {articles.slice(1, 7).map(article => (
             <ArticleCard key={article['id']} dateNow={dateNow} article={article} />
           ))}
         </div>
