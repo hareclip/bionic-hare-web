@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, Redirect, useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 
+import Spinner from 'components/Spinner';
 import client from 'config/client';
 
 
@@ -42,25 +43,38 @@ export default function Article() {
   }
 
   if (isLoading) {
-    return <p>loading</p>
+    return (
+      <div className="flex justify-center mt-5 h-screen">
+        <Spinner />
+      </div>
+    )
   }
 
   return (
     <div className="px-5">
-      <div className="grid grid-cols-12 mt-5">
+      <div className="grid grid-cols-12 mt-5 md:gap-10">
+
+        <div className="col-start-1 col-span-12 md:col-start-1 md:col-span-3 invisible h-0 md:visible md:h-full">
+          <h1 className="text-2xl font-semibold border-t-2 border-b-2 py-3">Latest</h1>
+        </div>
+
         <div className="col-start-1 col-span-12 md:col-start-4 md:col-span-6">
           <img className="w-full h-96 object-cover" src={article['header_image']} />
-          <h1 className="text-4xl font-bold mt-5">{article['category']['label']}</h1>
-          <h1 className="text-6xl font-extrabold mt-5">{article['title']}</h1>
-          <h1 className="text-3xl mt-5">
+          <h1 className="text-2xl md:text-4xl font-bold mt-5">{article['category']['label']}</h1>
+          <h1 className="text-4xl md:text-6xl font-extrabold mt-5">{article['title']}</h1>
+          <h1 className="text-xl md:text-3xl mt-5">
             <span>By: </span>
             <Link to={`authors/${article['author']['id']}`}>{article['author']['first_name']} {article['author']['last_name']}</Link>
           </h1>
-          <h1 className="text-3xl mt-5">{new Date(article['date_created']).toUTCString()}</h1>
-          <hr className="my-10" />
-          <div className="prose prose-xl p-5">
+          <h1 className="text-xl md:text-3xl mt-5">{new Date(article['date_created']).toUTCString()}</h1>
+          <div className="border-b-2 my-10"></div>
+          <div className="prose md:prose-xl p-5">
             <ReactMarkdown>{contents}</ReactMarkdown>
           </div>
+        </div>
+
+        <div className="col-start-1 col-span-12 md:col-start-4 md:col-span-8">
+          <h1 className="text-2xl font-semibold border-t-2 border-b-2 py-3">Read More</h1>
         </div>
       </div>
     </div>
