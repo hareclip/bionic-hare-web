@@ -1,6 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare, faTwitterSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
 
+/**
+ * Social media links
+ * 
+ * @param {*} param0 
+ */
 export default function SocialTab({ social }) {
 
   if (!social) {

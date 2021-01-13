@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom';
 
 import { getReadableTimeDifference } from 'utils';
 
+/**
+ * Tab without image for article
+ * 
+ * @param {*} param0 
+ */
 export default function ArticleTab({ dateNow, article }) {
   return (
     <div>

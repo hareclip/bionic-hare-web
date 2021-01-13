@@ -8,6 +8,9 @@ import ArticleCard from 'components/ArticleCard';
 import ArticleTab from 'components/ArticleTab';
 import FeaturedArticle from 'components/FeaturedArticle';
 
+/**
+ * Home page
+ */
 export default function Home() {
 
   const dateNow = Date.now();

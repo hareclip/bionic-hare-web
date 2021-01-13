@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom';
 
 import { getReadableTimeDifference } from 'utils';
 
+/**
+ * Article card for featured article
+ * 
+ * @param {*} param0 
+ */
 export default function FeaturedArticle({ dateNow, article }) {
   return (
     <div>

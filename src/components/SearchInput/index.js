@@ -1,5 +1,8 @@
 import { useState } from 'react';
 
+/**
+ * Search input widget
+ */
 export default function SearchInput() {
 
   const [searchInput, setSearchInput] = useState('');

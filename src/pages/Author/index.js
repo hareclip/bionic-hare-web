@@ -5,6 +5,9 @@ import ArticlePagination from 'components/ArticlePagination';
 import Spinner from 'components/Spinner';
 import client from 'config/client';
 
+/**
+ * Author page
+ */
 export default function Author() {
 
   const articlesPerPage = 10;

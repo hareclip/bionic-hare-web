@@ -5,6 +5,9 @@ import ArticlePagination from 'components/ArticlePagination';
 import Spinner from 'components/Spinner';
 import client from 'config/client';
 
+/**
+ * Article archive page
+ */
 export default function Archive() {
 
   const articlesPerPage = 10;

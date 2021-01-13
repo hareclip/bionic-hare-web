@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom';
 
 import { getReadableTimeDifference } from 'utils';
 
+/**
+ * Card with image for article
+ * 
+ * @param {*} param0 
+ */
 export default function ArticleCard({ dateNow, article }) {
   return (
     <div className="flex flex-col h-full">

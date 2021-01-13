@@ -1,6 +1,9 @@
 import SocialTab from './SocialTab';
 import siteInfo from 'config/siteInfo.json';
 
+/**
+ * Site footer
+ */
 export default function Footer() {
 
   return (

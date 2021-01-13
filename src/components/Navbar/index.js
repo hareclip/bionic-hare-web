@@ -7,6 +7,9 @@ import SearchInput from 'components/SearchInput';
 import { useCategories } from 'context/category';
 import siteInfo from 'config/siteInfo.json';
 
+/**
+ * Site navbar
+ */
 export default function Navbar() {
 
   const { categories } = useCategories();

@@ -8,6 +8,9 @@ import ArticleCard from 'components/ArticleCard';
 import client from 'config/client';
 import { getReadableTime } from 'utils';
 
+/**
+ * Article page
+ */
 export default function Article() {
 
   const dateNow = Date.now();

@@ -4,6 +4,11 @@ import { faAngleLeft, faAngleRight, faAngleDoubleLeft, faAngleDoubleRight } from
 
 import ArticleTab from 'components/ArticleTab';
 
+/**
+ * List of articles with pagination through query
+ * 
+ * @param {*} param0 
+ */
 export default function ArticlePagination({
   totalCount, articlesPerPage = 10, displayPages = 3, articles, pathName, search = '', page, next, prev,
 }) {

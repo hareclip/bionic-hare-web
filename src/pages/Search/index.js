@@ -6,6 +6,9 @@ import ArticlePagination from 'components/ArticlePagination';
 import Spinner from 'components/Spinner';
 import client from 'config/client';
 
+/**
+ * Search page
+ */
 export default function Search() {
 
   const articlesPerPage = 10;
