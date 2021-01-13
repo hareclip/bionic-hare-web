@@ -23,10 +23,22 @@ Edit `src/config/siteInfo.json` with desired config.
     yarn build
     npx serve build
 
-### Deploy to GH Pages
+## Deploy to GH Pages
 
 Configure `homepage` in `package.json` and build site.
 
-Deploy with:
+Build and deploy with:
 
-    yarn deploy
+    yarn build
+    npx gh-pages -d build --no-history
+
+## Deploy to Netlify
+
+Authenticate with Netlify:
+
+    npx netlify login
+
+Build and deploy with:
+
+    yarn build
+    npx netlify deploy --dir build --prod
