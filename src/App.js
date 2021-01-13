@@ -40,12 +40,10 @@ function App() {
         <Layout>
           <Switch>
             {/* Application */}
-            <Route path="/authors/:id" exact component={Author}></Route>
+            <Route path="/authors/:id" exact render={props => <Author key={`${props.match.params.id}/${props.location.search}`} />}></Route>
             <Route path="/articles/:id" exact render={props => <Article key={props.match.params.id} />}></Route>
             <Route path="/categories/:id" exact render={props => <Home key={props.match.params.id} />}></Route>
-            <Route path="/archive/:page" exact render={props => <Archive key={props.match.params.page} />}></Route>
-            <Route path="/archive" exact component={Archive}></Route>
-            <Route path="/search/:page" exact render={props => <Search key={`${props.match.params.page}/${props.location.search}`} />}></Route>
+            <Route path="/archive" exact render={props => <Archive key={props.location.search} />}></Route>
             <Route path="/search" exact render={props => <Search key={props.location.search} />}></Route>
             <Route path="/" exact component={Home}></Route>
           </Switch>

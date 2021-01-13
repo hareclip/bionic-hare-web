@@ -22,6 +22,7 @@ export default function Article() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const getArticle = async () => {
       try {
         const [articleRes, latestRes] = await Promise.all([

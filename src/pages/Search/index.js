@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import SearchInput from 'components/SearchInput';
 import ArticlePagination from 'components/ArticlePagination';
@@ -9,13 +9,13 @@ import client from 'config/client';
 export default function Search() {
 
   const articlesPerPage = 10;
-  const pathName = 'search';
+  const pathName = '/search';
 
   const { search } = useLocation();
-  const { page } = useParams();
 
-  const searchTerm = new URLSearchParams(search).get('searchTerm');
-  const currPage = parseInt(page) || 1;
+  const searchParams = new URLSearchParams(search);
+  const page = parseInt(searchParams.get('page')) || 1;
+  const searchTerm = searchParams.get('searchTerm');
 
   const [articles, setArticles] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -24,8 +24,9 @@ export default function Search() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const getArticles = async () => {
-      const res = await client.get(`articles?offset=${(currPage - 1) * articlesPerPage}&limit=${articlesPerPage}&search_term=${searchTerm}`);
+      const res = await client.get(`articles?offset=${(page - 1) * articlesPerPage}&limit=${articlesPerPage}&search_term=${searchTerm}`);
       setArticles(res.data.results);
       setTotalCount(parseInt(res.data.count));
       setPrev(res.data.previous);
@@ -59,7 +60,7 @@ export default function Search() {
                   articles={articles}
                   pathName={pathName}
                   search={search}
-                  page={currPage}
+                  page={page}
                   next={next}
                   prev={prev}
                 />

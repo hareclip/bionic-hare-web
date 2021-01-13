@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import ArticlePagination from 'components/ArticlePagination';
 import Spinner from 'components/Spinner';
@@ -8,11 +8,10 @@ import client from 'config/client';
 export default function Archive() {
 
   const articlesPerPage = 10;
-  const pathName = 'archive';
+  const pathName = '/archive';
 
-  const { page } = useParams();
-
-  const currPage = parseInt(page) || 1;
+  const { search } = useLocation();
+  const page = parseInt(new URLSearchParams(search).get('page')) || 1;
 
   const [articles, setArticles] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -21,8 +20,9 @@ export default function Archive() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const getArticles = async () => {
-      const res = await client.get(`articles?offset=${(currPage - 1) * articlesPerPage}&limit=${articlesPerPage}`);
+      const res = await client.get(`articles?offset=${(page - 1) * articlesPerPage}&limit=${articlesPerPage}`);
       setArticles(res.data.results);
       setTotalCount(parseInt(res.data.count));
       setPrev(res.data.previous);
@@ -52,7 +52,7 @@ export default function Archive() {
         articlesPerPage={articlesPerPage}
         articles={articles}
         pathName={pathName}
-        page={currPage}
+        page={page}
         next={next}
         prev={prev}
       />
