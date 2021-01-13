@@ -4,7 +4,7 @@ import { getReadableTimeDifference } from 'utils';
 
 export default function ArticleTab({ dateNow, article }) {
   return (
-    <div className="flex flex-col">
+    <div>
       <p className="text-lg font-semibold mt-5">{article['category']['label']}</p>
       <Link className="text-2xl font-bold mt-2" to={`/articles/${article['id']}`}>
         {article['title']}
