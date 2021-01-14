@@ -14,6 +14,8 @@ Create `.env` from `sample.env` and fill with proper credentials.
 
 Edit `src/config/siteInfo.json` with desired config.
 
+Edit files under `public/` with desired config.
+
 ### Development
 
     yarn start
