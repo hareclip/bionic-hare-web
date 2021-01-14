@@ -48,7 +48,7 @@ export default function Search() {
   }
 
   return (
-    <div>
+    <div className="lg:px-40">
       <SearchInput />
       <div className="mt-5">
         {

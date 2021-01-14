@@ -44,7 +44,7 @@ export default function Archive() {
   }
 
   return (
-    <div>
+    <div className="lg:px-40">
       <div className="col-span-12 pb-5">
         <h1 className="text-5xl md:text-7xl font-extrabold">Archive</h1>
         <div className="w-32 mt-5 border-b-2"></div>

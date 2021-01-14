@@ -8,9 +8,9 @@ export default function SearchInput() {
   const [searchInput, setSearchInput] = useState('');
 
   return (
-    <div>
+    <div className="flex">
       <input
-        className="border-2 rounded p-1 text-black"
+        className="border-2 rounded p-1 text-black w-full"
         onInput={e => setSearchInput(e.target.value)}
         onKeyDown={e => {
           if (e.key === 'Enter') {

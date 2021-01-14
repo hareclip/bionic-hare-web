@@ -24,28 +24,28 @@ export default function Navbar() {
   return (
     <div className="w-100 bg-red-500 text-white p-5">
 
-      <h1 className="text-5xl font-extrabold mb-5 hidden md:block">{siteInfo.name}</h1>
+      <Link className="hover:no-underline text-5xl font-extrabold mb-5 hidden xl:block" to="/">{siteInfo.name}</Link>
 
       <nav className="flex justify-between items-center">
-        <h1 className="text-5xl font-extrabold md:hidden">{siteInfo.name}</h1>
-        <div className="md:hidden flex w-full justify-end">
+        <Link className="hover:no-underline text-5xl font-extrabold xl:hidden" to="/">{siteInfo.name}</Link>
+        <div className="xl:hidden flex w-full justify-end">
           <button onClick={toggle}>
             <FontAwesomeIcon icon={faBars} size="2x" />
           </button>
         </div>
 
         {/* Desktop menu */}
-        <div className="hidden md:flex md:justify-between md:flex-grow items-center">
+        <div className="hidden xl:flex xl:justify-between xl:flex-grow items-center">
           <ul className="flex flex-row justify-between">
-            <li className="mr-5 text-lg font-semibold"><Link to="/">All</Link></li>
+            <li className="mr-5 text-xl font-semibold"><Link to="/">All</Link></li>
             {categories.map(({ id, label }) => (
-              <li key={id} className="mr-5 text-lg font-semibold"><Link to={`/categories/${id}`}>{label}</Link></li>
+              <li key={id} className="mr-5 text-xl font-semibold"><Link to={`/categories/${id}`}>{label}</Link></li>
             ))}
-            <li className="mr-5 text-lg font-semibold"><Link to="/archive">Archive</Link></li>
+            <li className="mr-5 text-xl font-semibold"><Link to="/archive">Archive</Link></li>
           </ul>
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden xl:block">
           <SearchInput />
         </div>
       </nav>
@@ -53,17 +53,17 @@ export default function Navbar() {
       {/* Mobile menu */}
       {isOpen
         ? (
-          <div className="md:hidden">
+          <div className="xl:hidden">
             <ul className="flex flex-col">
-              <li className="mr-5 mt-5 text-lg font-semibold">
+              <li className="mr-5 mt-5 text-xl font-semibold">
                 <Link to="/" onClick={() => setIsOpen(false)}>All</Link>
               </li>
               {categories.map(({ id, label }) => (
-                <li key={id} className="mr-5 mt-5 text-lg font-semibold">
+                <li key={id} className="mr-5 mt-5 text-xl font-semibold">
                   <Link to={`/categories/${id}`} onClick={() => setIsOpen(false)}>{label}</Link>
                 </li>
               ))}
-              <li className="mr-5 mt-5 text-lg font-semibold">
+              <li className="mr-5 mt-5 text-xl font-semibold">
                 <Link to="/archive" onClick={() => setIsOpen(false)}>Archive</Link>
               </li>
             </ul>

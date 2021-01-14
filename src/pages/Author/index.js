@@ -51,7 +51,7 @@ export default function Author() {
   }
 
   return (
-    <div>
+    <div className="lg:px-40">
       <h1 className="text-6xl font-bold">{author['first_name']} {author['last_name']}</h1>
       <div className="mt-5">
         <ArticlePagination
